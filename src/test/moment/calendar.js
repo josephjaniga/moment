@@ -23,12 +23,12 @@ test('extending calendar options', function (assert) {
 
         var retVal =  diff < -6 ? 'sameElse' :
             diff < -1 ? 'lastWeek' :
-                diff < 0 ? 'lastDay' :
-                    diff < 1 ? 'sameDay' :
-                        diff < 2 ? 'nextDay' :
-                            diff < 7 ? 'nextWeek' :
-                                (myMoment.month() === now.month() && myMoment.year() === now.year()) ? 'thisMonth' :
-                                    (nextMonth.month() === myMoment.month() && nextMonth.year() === myMoment.year()) ? 'nextMonth' : 'sameElse';
+            diff < 0 ? 'lastDay' :
+            diff < 1 ? 'sameDay' :
+            diff < 2 ? 'nextDay' :
+            diff < 7 ? 'nextWeek' :
+            (myMoment.month() === now.month() && myMoment.year() === now.year()) ? 'thisMonth' :
+            (nextMonth.month() === myMoment.month() && nextMonth.year() === myMoment.year()) ? 'nextMonth' : 'sameElse';
         return retVal;
     };
 
@@ -38,11 +38,11 @@ test('extending calendar options', function (assert) {
             nextDay : '[Tomorrow at] LT',
             nextWeek : 'dddd [at] LT',
             lastDay : '[Yesterday at] LT',
-                lastWeek : '[Last] dddd [at] LT',
-                thisMonth : '[This month on the] Do',
-                nextMonth : '[Next month on the] Do',
-                sameElse : 'L'
-            }
+            lastWeek : '[Last] dddd [at] LT',
+            thisMonth : '[This month on the] Do',
+            nextMonth : '[Next month on the] Do',
+            sameElse : 'L'
+        }
     });
     var a = moment('2016-01-01').add(28, 'days');
     var b = moment('2016-01-01').add(1, 'month');
