@@ -34,15 +34,15 @@ test('extending calendar options', function (assert) {
 
     moment.updateLocale('en', {
         calendar : {
-            sameDay : '[Today at] LT',
-            nextDay : '[Tomorrow at] LT',
-            nextWeek : 'dddd [at] LT',
-            lastDay : '[Yesterday at] LT',
-            lastWeek : '[Last] dddd [at] LT',
-            thisMonth : '[This month on the] Do',
-            nextMonth : '[Next month on the] Do',
-            sameElse : 'L'
-        }
+                sameDay : '[Today at] LT',
+                nextDay : '[Tomorrow at] LT',
+                nextWeek : 'dddd [at] LT',
+                lastDay : '[Yesterday at] LT',
+                lastWeek : '[Last] dddd [at] LT',
+                thisMonth : '[This month on the] Do',
+                nextMonth : '[Next month on the] Do',
+                sameElse : 'L'
+            }
     });
     var a = moment('2016-01-01').add(28, 'days');
     var b = moment('2016-01-01').add(1, 'month');
