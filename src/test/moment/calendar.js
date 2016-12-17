@@ -23,21 +23,21 @@ test('extending calendar options', function (assert) {
 
         var retVal =  diff < -6 ? 'sameElse' :
             diff < -1 ? 'lastWeek' :
-            diff < 0 ? 'lastDay' :
-            diff < 1 ? 'sameDay' :
-            diff < 2 ? 'nextDay' :
-            diff < 7 ? 'nextWeek' :
-            (myMoment.month() === now.month() && myMoment.year() === now.year()) ? 'thisMonth' :
-            (nextMonth.month() === myMoment.month() && nextMonth.year() === myMoment.year()) ? 'nextMonth' : 'sameElse';
+                diff < 0 ? 'lastDay' :
+                    diff < 1 ? 'sameDay' :
+                        diff < 2 ? 'nextDay' :
+                            diff < 7 ? 'nextWeek' :
+                                (myMoment.month() === now.month() && myMoment.year() === now.year()) ? 'thisMonth' :
+                                    (nextMonth.month() === myMoment.month() && nextMonth.year() === myMoment.year()) ? 'nextMonth' : 'sameElse';
         return retVal;
     };
 
     moment.updateLocale('en', {
         calendar : {
-                sameDay : '[Today at] LT',
-                nextDay : '[Tomorrow at] LT',
-                nextWeek : 'dddd [at] LT',
-                lastDay : '[Yesterday at] LT',
+            sameDay : '[Today at] LT',
+            nextDay : '[Tomorrow at] LT',
+            nextWeek : 'dddd [at] LT',
+            lastDay : '[Yesterday at] LT',
                 lastWeek : '[Last] dddd [at] LT',
                 thisMonth : '[This month on the] Do',
                 nextMonth : '[Next month on the] Do',
@@ -54,4 +54,14 @@ test('extending calendar options', function (assert) {
         moment.calendarFormat = calendarFormat;
         moment.updateLocale('en', null);
     }
+});
+
+test('calendar overload - passing one parameter formats', function (assert) {
+    var a = moment().hours(13).minutes(23).seconds(45);
+    assert.equal(moment(a).calendar({
+        'sameDay': function () {
+            return 'h:mm:ssA';
+        }
+    }), '1:23:45PM', 'should equate');
+
 });
